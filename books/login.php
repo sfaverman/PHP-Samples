@@ -17,6 +17,18 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
 		if ( (strtolower($_POST['email']) == 'me@example.com') && (trim($_POST['password'] == 'testpass')) ) { // Correct!
 
+
+			/* Not required to call the session_start at the beginning of this script because the header.php file begins with output buffering */
+
+			session_start();
+
+			//store the user's submitted email address in $SESSION variable
+
+			$_SESSION['email'] = $_POST['email'];
+			$_SESSION['loggedin'] = time();
+
+
+			//Redirect the user to the welcome page
 			/* don't need print anymore as we are redirecting to another page */
 			/*print '<p class="text--success">You are logged in!<br>Now you can blah, blah, blah...</p>';*/
 
