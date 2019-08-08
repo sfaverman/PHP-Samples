@@ -1,7 +1,15 @@
 
 <?php
+session_start();
+//var_dump($_SESSION);
+if ($_SESSION['auth'] != 'wdfdfggfgfgfg'){
+	header ("Location: login.php");
+}
 
-//INSERT form registration form data into database
+echo "Welcome, ".$_SESSION['username'].' ';
+echo '<a href="logout.php">Log Out</a><br>';
+
+//INSERT data from registration form into database
 
 //Connect to database
 
